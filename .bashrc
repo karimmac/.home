@@ -326,8 +326,10 @@ export P4USER='KarimMacDonald'
 
 export COLORTERM=1
 export CLICOLOR=1
-export GREP_COLOR='1;31'
-export GREP_OPTIONS='--color=auto'
+if grep --color 'a' <<< 'a' &>/dev/null; then
+    export GREP_COLOR='1;31'
+    export GREP_OPTIONS='--color=auto'
+fi
 export PS1
 
 # Manipulate $PATH
