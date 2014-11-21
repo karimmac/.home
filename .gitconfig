@@ -1,0 +1,97 @@
+[core]
+	excludesfile = ~/.gitignore
+
+[user]
+	name = Karim MacDonald
+	email = karim.macdonald@gmail.com
+	username = karimmacdonald
+
+[push]
+	default = simple
+
+[rerere]
+	enabled = true
+
+[alias]
+	a = add
+	ad = add
+	b = branch
+	ba = branch -a
+	br = branch
+	bs = bisect
+	c = commit
+	ca = commit -a
+	co = checkout
+	ch = checkout
+	d = diff
+	da = diff HEAD
+	dh = diff HEAD
+	di = diff
+	dc = diff --cached
+	ds = diff --staged
+	wd = diff --color-words
+	dg = difftool --gui
+	dgc = difftool --gui --cached
+	dt = difftool
+	dtc = difftool --cached
+	g = grep
+	h = help
+	he = help
+	l = log --topo-order --decorate
+	ls = log --topo-order --decorate --stat
+	l5 = log --topo-order --decorate -5
+	l0 = log --topo-order --decorate -10
+	l10 = log --topo-order --decorate -10
+	lo = log --topo-order --oneline
+	lg = log --graph --topo-order --decorate
+	lgs = log --graph --topo-order --decorate --stat
+	lgo = log --graph --topo-order --decorate --oneline
+	glo = log --graph --topo-order --decorate --oneline
+	m = mergetool
+	mt = mergetool
+	mtv = mergetool --tool=vimdiff
+	pullall = "!f(){ git pull \"$@\" && git submodule update --init --recursive; }; f"
+	pall = "!f(){ git pull \"$@\" && git submodule update --init --recursive; }; f"
+	praise = blame
+	sg = "!f(){ git difftool --gui \"$@\"^..\"$@\"; }; f"
+	sh = show
+	ws = show --color-words
+	s = status
+	st = status
+	stat = status
+	su = submodule update --init
+	create-pull-request = !sh -c 'stash pull-request $0'
+
+[color]
+	ui = auto
+
+[credential]
+	helper = cache --timeout=3600
+
+[diff]
+	rename = copy
+
+[merge]
+	tool = p4merge
+
+[mergetool]
+	prompt = false
+	keepBackup = false
+
+[mergetool "p4merge"]
+	path = /c/Program Files/Perforce/p4merge
+
+[diff]
+	tool = rw-vimdiff
+	guitool = p4merge
+
+[difftool]
+	prompt = false
+
+[difftool "rw-vimdiff"]
+	cmd = vimdiff $LOCAL $REMOTE
+
+[include]
+	path = ~/.gitconfig_custom
+
+# vim: set ts=8 sts=8 sw=8:
