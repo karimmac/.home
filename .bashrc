@@ -65,9 +65,9 @@ __ps1_prompt
 unset __ps1_prompt
 
 # "ep": (+) append, prepend(^) or remove(-) dirs in a "PATH" var (colon-separated list).
-#	- save original var value as "ORIG_var" (the first time)
-#	- remove duplicates; lets you shuffle dirs to front or back.
-#	- do NOT append dir if it doesn't exist -- useful across multi platforms.
+#       - save original var value as "ORIG_var" (the first time)
+#       - remove duplicates; lets you shuffle dirs to front or back.
+#       - do NOT append dir if it doesn't exist -- useful across multi platforms.
 # ep accepts multiple dirs, but processes them left-to-right,
 #   so "^dir" ops are prepended in the counterintuitive (reverse) order.
 
@@ -94,8 +94,8 @@ unset __ps1_prompt
 #     fi
 #   done
 #
-#   val=${val%:}	# trailing :
-#   val=${val#:}	# leading :
+#   val=${val%:}        # trailing :
+#   val=${val#:}        # leading :
 #   eval $var=$val
 # }
 
@@ -103,7 +103,7 @@ lc () {
   tr [:upper:] [:lower:] "$@"
 }
 
-# how	Like "which", but finds aliases/bash-fns and perl modules.
+# how   Like "which", but finds aliases/bash-fns and perl modules.
 #       Expands symlinks and shows file type.
 how () {
   PATH=$PATH  # reset path search
@@ -131,7 +131,7 @@ path () {
 }
 
 # wi    Edit a script in $PATH. Chains through symlinks.
-#	Also: edit aliases and bash-fns in file from which they were sourced.
+#       Also: edit aliases and bash-fns in file from which they were sourced.
 wi () {
   EDITOR=${EDITOR:-vi}
   PATH=$PATH  # Forced reset of path cache
@@ -311,7 +311,9 @@ alias cdg=cgd
 complete -F _cgd cgd
 complete -F _cgd cdg
 
-alias ls='ls --color=auto'
+if ls --color=auto &>/dev/null; then
+    alias ls='ls --color=auto'
+fi
 alias ll='ls -l'
 alias la='ls -al'
 alias l='less -S'
@@ -319,7 +321,7 @@ alias g='git'
 
 # Make sure completion works for alias g=git, too
 complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null \
-	|| complete -o default -o nospace -F _git g
+        || complete -o default -o nospace -F _git g
 
 export P4EDITOR='vim +"set ft=p4"'
 export P4USER='KarimMacDonald'
