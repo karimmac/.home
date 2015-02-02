@@ -2,6 +2,7 @@
 .lesshst
 .vimrc
 _viminfo
+vimfiles/
+pip/
 .cache/
 .matplotlib/
-pip/
