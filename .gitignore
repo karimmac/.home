@@ -3,3 +3,5 @@
 .vimrc
 _viminfo
 .cache/
+.matplotlib/
+pip/
