@@ -47,6 +47,7 @@
 	lgs = log --graph --topo-order --decorate --stat
 	lgo = log --graph --topo-order --decorate --oneline
 	glo = log --graph --topo-order --decorate --oneline
+	lgc = log --graph --topo-order --decorate --format=format:'%C(auto) %h %Cgreen%ai %Cblue%an%C(auto)%d %Creset%s'
 	m = mergetool
 	mt = mergetool
 	mtv = mergetool --tool=vimdiff
