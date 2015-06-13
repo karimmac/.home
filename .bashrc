@@ -248,7 +248,8 @@ if [[ ! -f /usr/local/bin/idea ]]; then
 fi
 
 function _cache_git_dirs() {
-  [[ -z $__GIT_DIRS ]] && __GIT_DIRS=$(find ~/g -maxdepth 4 -type d -path "*/.git")
+  local git_root=~/g
+  [[ -z $__GIT_DIRS ]] && __GIT_DIRS=$(cd $git_root && find . -maxdepth 5 -type d -path "*/.git" | sed "s,^.,$git_root,g")
 }
 
 # cd into a git repo under ~/g
