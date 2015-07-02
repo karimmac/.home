@@ -57,9 +57,10 @@ __ps1_prompt () {
   local GREEN='\[\033[01;32m\]'
   local YELLOW='\[\033[01;33m\]'
   local CYAN='\[\033[01;36m\]'
+  local BLUE='\[\033[01;34m\]'
   local RED='\[\033[01;31m\]'
   local RESET='\[\033[00m\]'
-  PS1="$GREEN"'[\u@'"$YELLOW"'\h '"$CYAN"'$(__ps1_cwd)'"$RED"'$(__git_ps1 " (%s)")'"$GREEN"']\$ '"$RESET"
+  PS1="$GREEN"'[\u@'"$YELLOW"'\h'"$BLUE"' \t'"$CYAN"' $(__ps1_cwd)'"$RED"'$(__git_ps1 " (%s)")'"$GREEN"']\$ '"$RESET"
 }
 __ps1_prompt
 unset __ps1_prompt
