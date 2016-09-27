@@ -134,7 +134,7 @@ path () {
 # wi    Edit a script in $PATH. Chains through symlinks.
 #       Also: edit aliases and bash-fns in file from which they were sourced.
 wi () {
-  EDITOR=${EDITOR:-vi}
+  EDITOR=${EDITOR:-vim}
   PATH=$PATH  # Forced reset of path cache
   if alias $1 2>&- && egrep -q ^alias.$1 ~/.bashrc
   then $EDITOR +/"alias.$1" ~/.bashrc; . ~/.bashrc
@@ -234,11 +234,11 @@ git_repo_is_clean () {
 }
 
 function vo() {
-  (cd $(git rev-parse --show-toplevel) && vim -p $(git status -z | tr '\000' '\n' | grep -E '^([AMR]. |\?\? )' | cut -c 4-))
+  (cd "$(git rev-parse --show-toplevel)" && vim -p $(git status -z | tr '\000' '\n' | grep -E '^([AMR]. |\?\? )' | cut -c 4-))
 }
 
 function vl() {
-  (cd $(git rev-parse --show-toplevel) && vim -p $(git show --name-status | grep -E '^[AM]\t' | cut -f 2))
+  (cd "$(git rev-parse --show-toplevel)" && vim -p $(git show --name-status | grep -E '^[AM]\t' | cut -f 2))
 }
 
 if [[ ! -f /usr/local/bin/idea ]]; then
